@@ -49,5 +49,5 @@ default_context:
     test_runner:               'pytest'
     travis:                    'yes'
     version:                   '0.1.0'
-    website:                   'https://www.multicoin.co'
+    website:                   'https://www.github.com/ahmedbodi'
     year:                      'now'

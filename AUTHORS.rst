@@ -2,4 +2,4 @@
 Authors
 =======
 
-* Ahmed Bodiwala - https://www.multicoin.co
+* Ahmed Bodiwala - https://www.github.com/ahmedbodi
