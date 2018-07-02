@@ -67,7 +67,10 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
-        # eg: 'aspectlib==1.1.1', 'six>=1.7',
+        'construct==2.5.2',
+        'quark-hash==1.0',
+        'scrypt==0.7.1',
+        'x11-hash==1.4',
     ],
     extras_require={
         # eg:
