@@ -9,7 +9,8 @@ def test_sha256_bitcoin():
     """Test Bitcoin Genesis Block."""
     block_data = create_block(
         'The Times 03/Jan/2009 Chancellor on brink of second bailout for banks',
-        '04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f',
+        '04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f'
+        '6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f',
         50 *
         COIN,
         'SHA256',
@@ -28,7 +29,8 @@ def test_scrypt_litecoin():
     """Test Litecoin Genesis Block."""
     block_data = create_block(
         'NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56',
-        '040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9',
+        '040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3'
+        'eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9',
         50 *
         COIN,
         'Scrypt',
@@ -47,7 +49,8 @@ def test_x11_dash():
     """Test Dash Genesis Block."""
     block_data = create_block(
         'Wired 09/Jan/2014 The Grand Experiment Goes Live: Overstock.com Is Now Accepting Bitcoins',
-        '040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9',
+        '040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0'
+        'f470216fe1b51850b4acf21b179c45070ac7b03a9',
         50 *
         COIN,
         'X11',
@@ -66,7 +69,8 @@ def test_quark_pivx():
     """Test PIVX Genesis Block."""
     block_data = create_block(
         'U.S. News & World Report Jan 28 2016 With His Absence, Trump Dominates Another Debate',
-        '04c10e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9',
+        '04c10e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb'
+        '9c4b77b26d92428c61256cd42774babea0a073b2ed0c9',
         250 *
         COIN,
         'Quark',
