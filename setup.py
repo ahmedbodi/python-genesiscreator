@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+"""Setup File for Genesis Creator."""
 from __future__ import absolute_import
 from __future__ import print_function
 
@@ -16,6 +17,7 @@ from setuptools import setup
 
 
 def read(*names, **kwargs):
+    """Read File contents."""
     return io.open(
         join(dirname(__file__), *names),
         encoding=kwargs.get('encoding', 'utf8')
