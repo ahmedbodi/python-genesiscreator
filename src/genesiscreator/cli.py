@@ -33,11 +33,14 @@ parser.add_argument('--nNonce', dest='nNonce', default=2083236893,
 parser.add_argument('--algorithm', dest='algorithm', default='SHA256',
                     type=str, choices=['SHA256', 'Scrypt', 'X11', 'X13', 'X15'], help='the PoW algorithm to use for the genesis block')
 
-parser.add_argument('--pubkey', dest='pubkey', default='04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f',
+parser.add_argument('--pubkey', dest='pubkey',
+                    default='04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35'
+                    '504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f',
                     type=str, help='the pubkey found in the output script')
 
 parser.add_argument('--nValue', dest='nValue', default=50 * constants.COIN,
-                    type=int, help='the value in coins for the output, full value (exp. in bitcoin 5000000000 - To get other coins value: Block Value * 100000000)')
+                    type=int, help='the value in coins for the output, full value '
+                    '(exp. in bitcoin 5000000000 - To get other coins value: Block Value * 100000000)')
 
 parser.add_argument('--nBits', dest='nBits', default=0x1d00ffff,
                     type=hex, help='the target in hex')
@@ -62,3 +65,4 @@ def main(argv=sys.argv):
         nNonce: {nNonce}
         hashGenesisBlock: {hashGenesisBlock}
     """.format(**block_data))
+    return block_data
