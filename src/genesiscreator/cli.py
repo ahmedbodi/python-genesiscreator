@@ -43,7 +43,7 @@ parser.add_argument('--nValue', dest='nValue', default=50 * constants.COIN,
                     '(exp. in bitcoin 5000000000 - To get other coins value: Block Value * 100000000)')
 
 parser.add_argument('--nBits', dest='nBits', default=0x1d00ffff,
-                    type=hex, help='the target in hex')
+                    type=lambda x: int(x, 0), help='the target in hex')
 
 parser.add_argument('--nVersion', dest='nVersion', default=1,
                     type=int, help='The Block Version')
@@ -51,6 +51,7 @@ parser.add_argument('--nVersion', dest='nVersion', default=1,
 
 def main(argv=sys.argv):
     args = parser.parse_args()
+    print(args)
 
     block_data = create_block(args.pszTimestamp, args.pubkey, args.nValue, args.algorithm,
                               args.nTime, args.nBits, args.nNonce, args.nVersion)
