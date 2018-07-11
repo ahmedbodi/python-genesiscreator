@@ -26,7 +26,7 @@ def read(*names, **kwargs):
 
 setup(
     name='genesiscreator',
-    version='version='0.2.0'',
+    version='version='0.2.1'',
     license='BSD 3-Clause License',
     description='A Crypto-Currency Genesis Block Creator',
     long_description='%s\n%s' % (
