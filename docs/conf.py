@@ -26,7 +26,7 @@ project = u'GenesisCreator'
 year = '2018'
 author = u'Ahmed Bodiwala'
 copyright = '{0}, {1}'.format(year, author)
-version = release = 'version = release = '0.2.1''
+version = release = '0.2.1'
 
 pygments_style = 'trac'
 templates_path = ['.']
