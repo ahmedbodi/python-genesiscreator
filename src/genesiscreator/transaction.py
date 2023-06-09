@@ -1,12 +1,11 @@
 """File containing functions for the creation of transactions, input and output scripts."""
 import struct
-
+from genesiscreator.compat import hexencode, hexdecode
 from construct import Byte
 from construct import Bytes
 from construct import StaticField
 from construct import Struct
 from construct import UBInt32
-
 
 def create_input_script(psz_timestamp):
     """Using a timestamp string create the input script."""
@@ -15,15 +14,14 @@ def create_input_script(psz_timestamp):
     if len(psz_timestamp) > 76:
         psz_prefix = '4c'
 
-    script_prefix = '04ffff001d0104' + psz_prefix + chr(len(psz_timestamp)).encode('hex')
-    return (script_prefix + psz_timestamp.encode('hex')).decode('hex')
-
+    script_prefix = '04ffff001d0104' + psz_prefix + hexencode(chr(len(psz_timestamp)))
+    return hexdecode(script_prefix + hexencode(psz_timestamp))
 
 def create_output_script(pubkey):
     """Create an output script for paying to a pubkey from coinbase."""
     script_len = '41'
     OP_CHECKSIG = 'ac'
-    return (script_len + pubkey + OP_CHECKSIG).decode('hex')
+    return hexdecode(script_len + pubkey + OP_CHECKSIG)
 
 
 def create_genesis_transaction(psz_timestamp, coinbase_value, pubkey):
@@ -45,7 +43,7 @@ def create_genesis_transaction(psz_timestamp, coinbase_value, pubkey):
                          Bytes('output_script', 0x43),
                          UBInt32('locktime'))
 
-    tx = transaction.parse('\x00' * (127 + len(input_script)))
+    tx = transaction.parse(b'\x00' * (127 + len(input_script)))
     tx.version = struct.pack('<I', 1)
     tx.num_inputs = 1
     tx.prev_output = struct.pack('<qqqq', 0, 0, 0, 0)

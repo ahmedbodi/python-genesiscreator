@@ -50,6 +50,7 @@ setup(
         'Operating System :: POSIX',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Utilities',
     ],
     keywords=[
@@ -57,9 +58,6 @@ setup(
     ],
     install_requires=[
         'construct==2.5.2',
-        'quark-hash==1.0',
-        'scrypt==0.7.1',
-        'x11-hash==1.4',
     ],
     extras_require={
         # eg:

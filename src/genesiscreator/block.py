@@ -31,10 +31,10 @@ def create_block(pszTimestamp, pubkey, nValue, algorithm, nTime, nBits, nNonce, 
 
     # Calculate Merkle Root
     hash_merkle_root = hash_sha256d(tx)
-    block_data['hashMerkleRoot'] = '0x' + hash_merkle_root[::-1].encode('hex_codec')
+    block_data['hashMerkleRoot'] = '0x' + hash_merkle_root[::-1].hex()
 
     # Construct block
-    genesisblock = BlockHeader.parse('\x00' * 80)
+    genesisblock = BlockHeader.parse(b'\x00' * 80)
     genesisblock.version = struct.pack('<I', nVersion)
     genesisblock.hash_prev_block = struct.pack('<qqqq', 0, 0, 0, 0)
     genesisblock.hash_merkle_root = hash_merkle_root
@@ -51,22 +51,22 @@ def create_block(pszTimestamp, pubkey, nValue, algorithm, nTime, nBits, nNonce, 
         sha256_hash = hash_sha256d(block)[::-1]
         header_hash = ALGORITHMS[algorithm](block)[::-1]
         if is_need_header_hash(algorithm):
-            block_data['hashGenesisBlock'] = '0x' + header_hash.encode('hex_codec')
+            block_data['hashGenesisBlock'] = '0x' + header_hash.hex()
         else:
-            block_data['hashGenesisBlock'] = '0x' + sha256_hash.encode('hex_codec')
+            block_data['hashGenesisBlock'] = '0x' + sha256_hash.hex()
         return block_data
 
     while True:
         sha256_hash = hash_sha256d(block)[::-1]
         header_hash = ALGORITHMS[algorithm](block)[::-1]
 
-        if int(header_hash.encode('hex_codec'), 16) < target:
+        if int(header_hash.hex(), 16) < target:
             block_data['nTime'] = nTime
             block_data['nNonce'] = nNonce
             if is_need_header_hash(algorithm):
-                block_data['hashGenesisBlock'] = '0x' + header_hash.encode('hex_codec')
+                block_data['hashGenesisBlock'] = '0x' + header_hash.hex()
             else:
-                block_data['hashGenesisBlock'] = '0x' + sha256_hash.encode('hex_codec')
+                block_data['hashGenesisBlock'] = '0x' + sha256_hash.hex()
             return block_data
         else:
             nNonce += 1
